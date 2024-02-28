@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENDUTT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink; /* Ubah warna latar belakang menjadi pink */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hai Cantik!!</h1>
+        <input type="text" id="nama" placeholder="Ketik Namamu ya Cayanggg">
+        <button onclick="ambilNilai()">Enter</button>
+    </div>
+
+    <script>
+        function ambilNilai() {
+            var nama = document.getElementById("nama").value;
+            window.location.href = "halaman_kedua.html?nama=" + nama;
+        }
+
+        document.getElementById("nama").addEventListener("keypress", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                ambilNilai();
+            }
+        });
+    </script>
+</body>
+</html>
