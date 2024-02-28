@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFC0CB; /* Warna pink cerah */
+        }
+
+        .video-container {
+            position: relative; /* Membuat tombol menjadi posisi relatif terhadap kontainer video */
+            max-width: 20%; /* Lebar maksimum video relatif terhadap lebar layar */
+            width: 100%;
+            background-color: #fdd4ea;
+            padding: 20px; /* Mengurangi padding untuk tampilan yang lebih ramping */
+            border-radius: 10px;
+            margin: 0 auto;
+            box-sizing: border-box; /* Menyesuaikan padding ke dalam ukuran total */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan yang lebih menarik */
+        }
+
+        video {
+            width: 100%; /* Video mengisi lebar container */
+            height: auto; /* Mengatur tinggi secara otomatis sesuai proporsi */
+            display: block;
+            border-radius: 8px; /* Memberi border-radius agar lebih estetis */
+        }
+        
+        #btn_iya, #btn_gak {
+            display: inline-block; /* Menampilkan tombol dalam satu baris */
+            margin-right: 15px; /* Memberikan jarak antara tombol */
+        }
+        
+        #btn_gak {
+            position: absolute;
+            top: 94%;
+            left: calc(30% + 30px); /* Menggeser tombol GAK ke arah kanan */
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video controls>
+            <source src="faran.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1>Aku Gantengg?</h1>
+        <button id="btn_iya" onclick='alertMessage()'>IYA</button>
+        <button id="btn_gak" onclick='moveButton(this)'>GAK</button>
+    </div>
+    
+
+    <script>
+        function moveButton(button) {
+            var videoContainer = document.querySelector('.video-container');
+            var videoWidth = videoContainer.offsetWidth;
+            var videoHeight = videoContainer.offsetHeight;
+            var buttonWidth = button.offsetWidth;
+            var buttonHeight = button.offsetHeight;
+            var maxX = videoWidth - buttonWidth;
+            var maxY = videoHeight - buttonHeight;
+            var newX = Math.floor(Math.random() * maxX);
+            var newY = Math.floor(Math.random() * maxY);
+
+            button.style.left = newX + 'px';
+            button.style.top = newY + 'px';
+        }
+
+        function alertMessage() {
+            alert("IYADONG 😜");
+        }
+    </script>
+</body>
+</html>
